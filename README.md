@@ -39,12 +39,12 @@ Modify your ERC-20 token contract to call `onTransfer` during transfers.
 function transfer(address to, uint256 amount) public override returns (bool) {
 directionalBlockLimit.onTransfer(msg.sender, to, amount, false);
 return super.transfer(to, amount);
-}```
+}
 
 
 ### Configure Protection
 
 Whitelist factories and exempt addresses as needed.
-```javascript
+```
 await directionalBlockLimit.setFactoryWhitelist("FACTORY_ADDRESS", 2, true);
 await directionalBlockLimit.setProteccExemption("EXEMPT_ADDRESS", true);```
